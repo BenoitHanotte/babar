@@ -68,7 +68,11 @@ object Processor {
       AccumulatedAvgByContainerAggregation("accumulated used heap", "HEAP_MEMORY_USED_BYTES", timePrecMs, MBSec),
       AccumulatedAvgByContainerAggregation("accumulated used off-heap", "OFF_HEAP_MEMORY_USED_BYTES", timePrecMs, MBSec),
       AccumulatedAvgByContainerAggregation("accumulated JVM CPU sec", "JVM_SCALED_CPU_USAGE", timePrecMs, timePrecSec),
-      AccumulatedAvgByContainerAggregation("accumulated GC CPU sec", "GC_SCALED_CPU_USAGE", timePrecMs, timePrecSec)
+      AccumulatedAvgByContainerAggregation("accumulated GC CPU sec", "GC_SCALED_CPU_USAGE", timePrecMs, timePrecSec),
+      // proc fs metrics
+      MaxAggregation("max RSS memory", "PROC_RSS_MEMORY_BYTES", timePrecMs, MB),
+      SumMaxByContainerAggregation("total RSS memory", "PROC_RSS_MEMORY_BYTES", timePrecMs, MB),
+      AccumulatedAvgByContainerAggregation("accumulated RSS memory", "PROC_RSS_MEMORY_BYTES", timePrecMs, MBSec),
     )
 
     val allTracesAggregations = Set(
